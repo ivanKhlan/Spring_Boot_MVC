@@ -45,14 +45,14 @@ public class NoteController {
 
     @GetMapping("/edit")
     public ModelAndView editNoteForm(@RequestParam("id") int id) {
-        ModelAndView modelAndView = new ModelAndView("test");
+        ModelAndView modelAndView = new ModelAndView("edit");
         Note note = noteStorage.getNoteById(id);
         modelAndView.addObject("note", note);
         return modelAndView;
     }
 
     @PostMapping("/edit")
-    public String editNote(@ModelAttribute("note") Note note) {
+    public String editNote(@ModelAttribute("test") Note note) {
         noteStorage.addUpdateNote(note);
         return "redirect:/note/list";
     }
